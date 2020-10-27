@@ -14,12 +14,7 @@ on:
   #     - master
   schedule:
     - cron: 30 13 * * 6
-  workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'true'
+    
 
 #点☆Star触发开始编译
   watch:
