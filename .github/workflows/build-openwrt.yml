@@ -19,7 +19,7 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        default: 'false'
+        default: 'true'
 
 #点☆Star触发开始编译
   watch:
