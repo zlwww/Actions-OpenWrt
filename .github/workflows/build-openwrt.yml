@@ -21,6 +21,10 @@ on:
         required: false
         default: 'false'
 
+#点☆Star触发开始编译
+  watch:
+    types: started
+
 env:
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
   PPPOE_USERNAME: ${{ secrets.PPPOE_USERNAME }}
@@ -39,7 +43,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [x86_64,phicomm-k2p,redmi-ac2100,nanopi-r2s]
+        target: [xiaomi-ac2100]
         
     steps:
     - name: Checkout
@@ -53,6 +57,7 @@ jobs:
         echo "CONFIG_FILE=${CONFIG_FILE}" >> $GITHUB_ENV
         echo "DIY_SH=${DIY_SH}" >> $GITHUB_ENV
         echo "FREE_UP_DISK=${FREE_UP_DISK}" >> $GITHUB_ENV
+        echo "SSH_ACTIONS=${SSH_ACTIONS}" >> $GITHUB_ENV
         echo "UPLOAD_BIN_DIR_FOR_ARTIFACT=${UPLOAD_BIN_DIR_FOR_ARTIFACT}" >> $GITHUB_ENV
         echo "UPLOAD_FIRMWARE_FOR_ARTIFACT=${UPLOAD_FIRMWARE_FOR_ARTIFACT}" >> $GITHUB_ENV
         echo "UPLOAD_FIRMWARE_FOR_RELEASE=${UPLOAD_FIRMWARE_FOR_RELEASE}" >> $GITHUB_ENV
