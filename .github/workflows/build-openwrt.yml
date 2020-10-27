@@ -158,8 +158,8 @@ jobs:
         sed -i '$i uci commit network' openwrt/package/*/*/default-settings/files/zzz-default-settings
               
     - name: SSH connection to Actions
-      uses: garypang13/debugger-action@master
-      if: github.event.inputs.ssh == 'true'
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
     - name: Download package
       id: package
